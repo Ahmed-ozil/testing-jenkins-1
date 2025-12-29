@@ -44,7 +44,7 @@ pipeline {
     }
     post {
         always {
-            ls -la
+            sh 'ls -la'
         }
     }    
 }
