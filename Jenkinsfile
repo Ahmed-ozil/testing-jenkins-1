@@ -47,10 +47,10 @@ pipeline {
                 }
             }
         }
+    }
     post {
         always {
             ls -la
         }
-    }
-}
+    }    
 }
