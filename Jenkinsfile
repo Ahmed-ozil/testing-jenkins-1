@@ -39,8 +39,6 @@ pipeline {
                         '''
                     }
                 }
-
-                
             }
         }
     post {
@@ -48,4 +46,5 @@ pipeline {
             ls -la
         }
     }
+}
 }
