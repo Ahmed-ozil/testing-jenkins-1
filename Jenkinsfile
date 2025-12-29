@@ -17,23 +17,35 @@ pipeline {
                 '''
             }
         }
-        stage('Test') {
+        stage('Testing') {
             agent {
                 docker {
                     image 'node:18-alpine'
                     reuseNode true
                 }
             }
-            steps {
-                sh '''
-                    test -f build/test.txt
-                '''
+            parallel {
+                stage('Test-01') {
+                    steps {
+                        sh '''
+                            test -f build/test.txt
+                        '''
+                    }
+                }
+                stage('Test-02') {
+                    steps {
+                        sh '''
+                            test -f build/test.txt
+                        '''
+                    }
+                }
+
+                
             }
         }
-    }
     post {
         always {
-            junit 'build/test'
+            ls -la
         }
     }
 }
