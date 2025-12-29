@@ -1,6 +1,9 @@
 pipeline {
     agent any
 
+    environment {
+        PASS = credintials('Name')
+    }
     stages {
         stage('Build') {
             agent {
@@ -28,6 +31,7 @@ pipeline {
                     }
                     steps {
                         sh '''
+                            echo $PASS
                             test -f build/test.txt
                         '''
                     }
