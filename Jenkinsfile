@@ -18,13 +18,13 @@ pipeline {
             }
         }
         stage('Testing') {
-            agent {
-                docker {
-                    image 'node:18-alpine'
-                    reuseNode true
-                }
-            }
             parallel {
+                agent {
+                    docker {
+                        image 'node:18-alpine'
+                        reuseNode true
+                    }
+                }
                 stage('Test-01') {
                     steps {
                         sh '''
