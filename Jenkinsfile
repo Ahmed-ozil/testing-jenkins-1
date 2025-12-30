@@ -18,6 +18,10 @@ pipeline {
                     mkdir -p build
                     touch build/test.txt
                 '''
+            }
+        }
+        stage('Approval') {
+            steps {
                 input {
                     message 'Proceed to testing stage?'
                 }
