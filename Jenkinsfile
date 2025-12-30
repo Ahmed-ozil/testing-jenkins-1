@@ -22,7 +22,7 @@ pipeline {
                     // env.MY_VAR = sh(script: 'date' , returnStdout: true)
                     env.MY_VAR = 'test'
                 }
-                input 'Proceed to testing?'
+                // input 'Proceed to testing?'
             }
         }
         stage('Testing') {
