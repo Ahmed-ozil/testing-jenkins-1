@@ -20,6 +20,7 @@ pipeline {
                 '''
                 script {
                     env.MY_VAR = sh(script: 'date' , returnStdout: true)
+                }
                 input 'Proceed to testing?'
             }
         }
