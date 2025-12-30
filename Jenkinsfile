@@ -18,6 +18,8 @@ pipeline {
                     mkdir -p build
                     touch build/test.txt
                 '''
+                script {
+                    env.MY_VAR = sh(script: 'date' , returnStdout: true)
                 input 'Proceed to testing?'
             }
         }
@@ -32,6 +34,7 @@ pipeline {
                     }
                     steps {
                         sh '''
+                            echo "MY_VAR is: ${env.MY_VAR}"
                             echo $PASS
                             test -f build/test.txt
                         '''
