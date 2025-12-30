@@ -19,7 +19,8 @@ pipeline {
                     touch build/test.txt
                 '''
                 script {
-                    env.MY_VAR = sh(script: 'date' , returnStdout: true)
+                    // env.MY_VAR = sh(script: 'date' , returnStdout: true)
+                    env.MY_VAR = 'test'
                 }
                 input 'Proceed to testing?'
             }
