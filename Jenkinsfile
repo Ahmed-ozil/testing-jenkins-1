@@ -19,8 +19,7 @@ pipeline {
                     touch build/test.txt
                 '''
                 script {
-                    // env.MY_VAR = sh(script: 'date' , returnStdout: true)
-                    env.MY_VAR = 'test'
+                    env.MY_VAR = sh(script: 'date' , returnStdout: true)
                 }
                 // input 'Proceed to testing?'
             }
@@ -36,9 +35,8 @@ pipeline {
                     }
                     steps {
                         sh '''
-                            echo "${MY_VAR}"
-                            // echo "my var is ${env.MY_VAR}"
-                            // echo $PASS
+                            echo "My past date is: ${MY_VAR}"
+                            echo $PASS
                             test -f build/test.txt
                         '''
                     }
