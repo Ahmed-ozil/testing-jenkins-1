@@ -36,8 +36,9 @@ pipeline {
                     }
                     steps {
                         sh '''
-                            echo "my var is ${env.MY_VAR}"
-                            echo $PASS
+                            echo "${MY_VAR}"
+                            // echo "my var is ${env.MY_VAR}"
+                            // echo $PASS
                             test -f build/test.txt
                         '''
                     }
